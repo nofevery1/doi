@@ -1,3 +1,3 @@
-var doi = window.href.search;
+var doi = window.location.search;
 
 console.log("heyyyy " + doi);
