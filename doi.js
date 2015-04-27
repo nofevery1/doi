@@ -10,16 +10,16 @@ var idFind = function (doi) {
     url: "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?retmode=json&db=pmc&term="+doi+"[doi]",
     datatype: "json",
     success: function(data) {
-      storeId = data.esearchresult.idlist[0];
-      console.log(storeId);
+      console.log(data.esearchresult.idlist[0]);
     }
   });
 }
 
-$.when(idFind(doi)).then( function (storeId) {
-  console.log('part deux');
+$.when(idFind(doi)).then( function (data) {
+  var pmc = data.esearchresult.idlist[0];
+  console.log('part deux'+ ' ' + pmc);
   $.ajax({
-    url: "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=xml&db=pmc&id="+storeId,
+    url: "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=xml&db=pmc&id="+pmc,
     datatype: "xml",
     success: function(data) {
       console.log(data);
