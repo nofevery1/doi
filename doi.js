@@ -16,7 +16,7 @@ var idFind = function (doi) {
   });
 }
 
-$.when(idFind(doi)).done( function (storeId) {
+$.when(idFind(doi)).then( function (storeId) {
   console.log('part deux');
   $.ajax({
     url: "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?retmode=xml&db=pmc&id="+storeId,
