@@ -7,6 +7,6 @@ $.ajax({
       url: "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pmc&retmode=json&term="+doi,
       datatype: "json",
       success: function(data) {
-        console.loge(data);
+        console.log(data);
       }
 });
