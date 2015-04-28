@@ -1,7 +1,7 @@
 var doi = window.location.search;
 
 
-if (doi.match(/[A-Za-z]/)) {
+
   console.log("heyyyy " + doi);
 
   var rep = doi.replace("?","");
@@ -18,6 +18,7 @@ if (doi.match(/[A-Za-z]/)) {
           });
           $mess.text("DOI does not have article available in PMC :( Sorry! Rerouting to DOI's source...");
           $("body").html($mess);
+          $("body").show();
           //alert("DOI does not have article available in PMC :( Sorry! Rerouting to DOI's source...");
           setTimeout(function() {document.location.href = "http://dx.doi.org/"+rep;},3000);
           //document.location.href = "http://dx.doi.org/"+rep;
@@ -64,7 +65,7 @@ if (doi.match(/[A-Za-z]/)) {
     });
 
     var str = xmlToString(xml);
-    $("body").html(str);
+    $("body").html(str).show();
     //$frem.text(xml);
     //$("body").append($frem);
     //  newDiv.html(test);
@@ -78,5 +79,11 @@ if (doi.match(/[A-Za-z]/)) {
   newDiv.appendTo("body");*/
   }
 
-idFind(doi);
-}
+$(document).ready({
+  if(doi.match(/[A-Za-z]/)) {
+    idFind(doi);
+  }
+  else {
+    $("body").show();
+  }
+});
