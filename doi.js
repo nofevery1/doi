@@ -1,7 +1,7 @@
 var doi = window.location.search;
 
-if (doi.match(/[A-Za-z]/)) {
 
+if (doi.match(/[A-Za-z]/)) {
   console.log("heyyyy " + doi);
 
   var rep = doi.replace("?","");
@@ -76,7 +76,7 @@ if (doi.match(/[A-Za-z]/)) {
   });
   newDiv.css({"width": "100%","height":"100%","background-color":"white"});
   newDiv.appendTo("body");*/
-}
+  }
 
 idFind(doi);
 }
