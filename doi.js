@@ -18,6 +18,7 @@ var idFind = function (doi) {
         });
         $mess.text("DOI does not have article available in PMC :( Sorry! Rerouting to DOI's source...");
         $("body").html($mess);
+        $("body").css({"text-color":"black","padding":"20px"});
         $("body").show();
         //alert("DOI does not have article available in PMC :( Sorry! Rerouting to DOI's source...");
         setTimeout(function() {document.location.href = "http://dx.doi.org/"+rep;},3000);
@@ -85,6 +86,7 @@ $(document).ready(function () {
   }
   else {
     console.log("NOthing to do");
+    $("body").css({"text-color":"black","padding":"20px"});
     $("body").show();
   }
 });
