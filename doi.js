@@ -16,13 +16,13 @@ var idFind = function (doi) {
           id: "reroute",
           class: "floater"
         });
-        $mess.text("DOI does not have article available in PMC :( Sorry! Rerouting to DOI's source...");
+        /*$mess.text("DOI does not have article available in PMC :( Sorry! Rerouting to DOI's source...");
         $("body").html($mess);
         $("body").css({"color":"black","padding":"20px"});
-        $("body").show();
+        $("body").show();*/
         //alert("DOI does not have article available in PMC :( Sorry! Rerouting to DOI's source...");
-        setTimeout(function() {document.location.href = "http://dx.doi.org/"+rep;},3000);
-        //document.location.href = "http://dx.doi.org/"+rep;
+        //setTimeout(function() {document.location.href = "http://dx.doi.org/"+rep;},3000);
+        document.location.href = "http://dx.doi.org/"+rep;
       }
 
       console.log(pmc);
@@ -66,6 +66,7 @@ var conversion = function(data) {
   });
 
   var str = xmlToString(xml);
+  $("body").css({"color":"black","padding":"20px"});
   $("body").html(str).show();
   //$frem.text(xml);
   //$("body").append($frem);
